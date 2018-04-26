@@ -1,0 +1,368 @@
+@mixin flex ($direccion: row, $wrap: nowrap, $alignItems: stretch, $justifyContent: flex-start, $alignContent: stretch){
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-direction: $direccion;
+  -webkit-flex-direction: $direccion;
+  -ms-flex-direction: $direccion;
+  -moz-box-direction: normal;
+  -webkit-box-direction: normal;
+
+  @if $direccion == "row"{
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+  } @else if $direccion == "column"{
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+  }
+
+  -ms-flex-wrap: $wrap;
+  -webkit-box-lines: $wrap;
+  -moz-box-lines: $wrap;
+  -webkit-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+
+  align-items: $alignItems;
+  @if $alignItems == 'stretch'{
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-box-align: stretch;
+    -ms-flex-align: stretch;
+  }@else if $alignItems == 'baseline'{
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -moz-box-align: baseline;
+    -ms-flex-align: baseline;
+  }@else if $alignItems == 'flex-start'{
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+  }@else if $alignItems == 'flex-end'{
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+  }@else if $alignItems == 'center'{
+    -webkit-box-align:center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+  }
+
+  justify-content: $justifyContent;
+  @if $justifyContent == 'space-around'{
+    -webkit-justify-content: space-around;
+    -webkit-box-pack: distribute;
+    -ms-flex-pack: distribute;
+    -moz-box-pack: distribute;
+  }@else if $justifyContent == 'space-between'{
+    -webkit-justify-content: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -moz-box-pack: justify;
+  }@else if $justifyContent == 'flex-start'{
+    -webkit-justify-content: flex-start;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -moz-box-pack: start;
+  }@else if $justifyContent == 'flex-end'{
+    -webkit-justify-content: flex-end;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -moz-box-pack: end;
+  }@else if $justifyContent == 'center'{
+    -webkit-justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -moz-box-pack: center;
+  }
+
+  align-content: $alignContent;
+  @if $alignContent == 'space-around'{
+    -ms-flex-line-pack: distribute;
+    -webkit-align-content: distribute;
+  }@else if $alignContent == 'space-between'{
+    -ms-flex-line-pack:justify;
+    -webkit-align-content: justify;
+  }@else if $alignContent == 'flex-start'{
+    -ms-flex-line-pack: start;
+    -webkit-align-content: start;
+  }@else if $alignContent == 'flex-end'{
+    -ms-flex-line-pack: end;
+    -webkit-align-content: end;
+  }@else if $alignContent == 'center'{
+    -ms-flex-line-pack: center;
+    -webkit-align-content: center;
+  }
+}
+body{
+  margin: 0 auto;
+  max-width: 1366px;
+  background-color: #194894;
+  width: 100%;
+  height: 100%;
+  @include flex(column,nowrap,center,center);
+  .terreno{
+    .caja{
+      cursor: pointer;
+      &:hover{
+        background: green;
+      }
+    }
+    position: relative;
+    width: 1000px; //100 Metros
+    height: 500px; //50 Metros
+    background-color: #3d3d3d;
+    .banquetaSuperior{
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      top: 0px;
+      background-color: #a6a6a6;
+    }
+    .banquetaIzquierda{
+      position: absolute;
+      width: 10px;
+      height: 100%;
+      left:0px;
+      background-color: #a6a6a6;
+    }
+    .banquetaDerecha{
+      position: absolute;
+      width: 10px;
+      height: 100%;
+      right:0px;
+      background-color: #a6a6a6;
+    }
+    .casetaUno{
+      width:72px;
+      height:47px;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      background: #644c38;
+      border-top: 10px solid #a6a6a6;
+      border-right: 10px solid #a6a6a6;
+
+    }
+    .casetaDos{
+      width:72px;
+      height:47px;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      background: #644c38;
+      border-top: 10px solid #a6a6a6;
+      border-left: 10px solid #a6a6a6;
+
+    }
+
+    .cajonA{
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      height: 100%;
+      width: 70px;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonB1{
+      position: absolute;
+      left:180px;
+      top: 53px;
+      height: 175px;
+      width:70px ;
+      border-right:10px solid #a6a6a6;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonB2{
+      position: absolute;
+      left:180px;
+      top: 268px;
+      height: 175px;
+      border-right:10px solid #a6a6a6;
+      width:70px ;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonC1{
+      position: absolute;
+      left:260px;
+      top: 53px;
+      width:70px ;
+      height: 175px;
+      border-left:10px solid #a6a6a6;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonC2{
+      position: absolute;
+      left:260px;
+      top: 268px;
+      width:70px ;
+      height: 175px;
+      border-left:10px solid #a6a6a6;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+
+    .cajonD1{
+      position: absolute;
+      right:180px;
+      top: 53px;
+      height: 175px;
+      width:70px ;
+      border-left:10px solid #a6a6a6;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonD2{
+      position: absolute;
+      right:180px;
+      top: 268px;
+      height: 175px;
+      border-left:10px solid #a6a6a6;
+      width:70px ;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonE1{
+      position: absolute;
+      right:260px;
+      top: 53px;
+      width:70px ;
+      height: 175px;
+      border-right:10px solid #a6a6a6;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonE2{
+      position: absolute;
+      right:260px;
+      top: 268px;
+      width:70px ;
+      height: 175px;
+      border-right:10px solid #a6a6a6;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonF{
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      height: 100%;
+      width: 70px;
+        @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-rig: 3px solid #d9ad00;
+      }
+
+    }
+
+
+  }
+  .carretera{
+    background:#3d3d3d;
+    width: 100%;
+    height: 80px;
+  }
+  .banquetaCalle{
+    width:100%;
+    height: 10px;
+    background-color: #a6a6a6;
+  }
+
+
+}
