@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 @mixin flex ($direccion: row, $wrap: nowrap, $alignItems: stretch, $justifyContent: flex-start, $alignContent: stretch){
   display: -webkit-box;
   display: -moz-box;
@@ -105,18 +106,59 @@ body{
   background-color: #194894;
   width: 100%;
   height: 100%;
+  font-family: 'Roboto', sans-serif;
   @include flex(column,nowrap,center,center);
   .terreno{
-    .caja{
-      cursor: pointer;
-      &:hover{
-        background: green;
-      }
-    }
     position: relative;
     width: 1000px; //100 Metros
     height: 500px; //50 Metros
     background-color: #3d3d3d;
+    .right{
+      .caja{
+        @include flex(row,nowrap,flex-start,flex-end);
+        i{
+          transform: rotate(90deg);
+          right:7px;
+        }
+      }
+    }
+    .left{
+      .caja{
+        @include flex(row,nowrap,flex-start,flex-start);
+        i{
+          transform: rotate(-90deg);
+            left:7px;
+        }
+      }
+    }
+    .caja{
+      position: relative;
+      span{
+        color: #fff;
+        font-size: 10px;
+        padding: 0px;
+        margin: 0px;
+        padding: 2px;
+        font-weight: 300;
+
+      }
+      cursor: pointer;
+      &:hover{
+        background: green;
+      }
+      i{
+        color: #fff;
+        font-size: 30px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0px;
+      }
+    }
+    .discapacidad{
+      background: #166fc1;
+    }
+
     .banquetaSuperior{
       position: absolute;
       width: 100%;
@@ -138,7 +180,9 @@ body{
       right:0px;
       background-color: #a6a6a6;
     }
+
     .casetaUno{
+
       width:72px;
       height:47px;
       position: absolute;
@@ -147,6 +191,10 @@ body{
       background: #644c38;
       border-top: 10px solid #a6a6a6;
       border-right: 10px solid #a6a6a6;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 300;
+      color: #fff;
 
     }
     .casetaDos{
@@ -158,16 +206,38 @@ body{
       background: #644c38;
       border-top: 10px solid #a6a6a6;
       border-left: 10px solid #a6a6a6;
+      text-align: center;
+      font-size: 12px;
+
+      font-weight: 300;
+      color: #fff;
 
     }
+    .entrada{
+      width: 90px;
+      height: 10px;
+      background: #3d3d3d;
+      position: absolute;
+      bottom:-10px;
+      right: 82px;
 
+    }
+    .salida{
+      width: 90px;
+      height: 10px;
+      background: #3d3d3d;
+      position: absolute;
+      bottom:-10px;
+      left: 82px;
+
+    }
     .cajonA{
       position: absolute;
-      left: 10px;
+      left: 11px;
       top: 10px;
       height: 100%;
       width: 70px;
-        @include flex(column,nowrap,center,flex-start);
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -181,12 +251,12 @@ body{
     }
     .cajonB1{
       position: absolute;
-      left:180px;
+      left:18%;
       top: 53px;
       height: 175px;
       width:70px ;
-      border-right:10px solid #a6a6a6;
-        @include flex(column,nowrap,center,flex-start);
+      border-right:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -200,12 +270,12 @@ body{
     }
     .cajonB2{
       position: absolute;
-      left:180px;
+      left:18%;
       top: 268px;
       height: 175px;
-      border-right:10px solid #a6a6a6;
+      border-right:5px solid #a6a6a6;
       width:70px ;
-        @include flex(column,nowrap,center,flex-start);
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -219,12 +289,12 @@ body{
     }
     .cajonC1{
       position: absolute;
-      left:260px;
+      left:25.5%;
       top: 53px;
       width:70px ;
       height: 175px;
-      border-left:10px solid #a6a6a6;
-        @include flex(column,nowrap,center,flex-start);
+      border-left:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -238,12 +308,12 @@ body{
     }
     .cajonC2{
       position: absolute;
-      left:260px;
+      left:25.5%;
       top: 268px;
       width:70px ;
       height: 175px;
-      border-left:10px solid #a6a6a6;
-        @include flex(column,nowrap,center,flex-start);
+      border-left:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -258,12 +328,12 @@ body{
 
     .cajonD1{
       position: absolute;
-      right:180px;
+      right:50%;
       top: 53px;
-      height: 175px;
       width:70px ;
-      border-left:10px solid #a6a6a6;
-        @include flex(column,nowrap,center,flex-start);
+      height: 175px;
+      border-right:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -271,18 +341,37 @@ body{
         height:40px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
       }
 
     }
     .cajonD2{
       position: absolute;
-      right:180px;
+      right:50%;
       top: 268px;
-      height: 175px;
-      border-left:10px solid #a6a6a6;
       width:70px ;
-        @include flex(column,nowrap,center,flex-start);
+      height: 175px;
+      border-right:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonE1{
+      position: absolute;
+      left:50%;
+      top: 53px;
+      height: 175px;
+      width:70px ;
+      border-left:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -294,14 +383,35 @@ body{
       }
 
     }
-    .cajonE1{
+    .cajonE2{
       position: absolute;
-      right:260px;
+      left:50%;
+      top: 268px;
+      height: 175px;
+      border-left:5px solid #a6a6a6;
+      width:70px ;
+      @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+
+
+    .cajonF1{
+      position: absolute;
+      right:25.5%;
       top: 53px;
       width:70px ;
       height: 175px;
-      border-right:10px solid #a6a6a6;
-        @include flex(column,nowrap,center,flex-start);
+      border-right:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -313,14 +423,14 @@ body{
       }
 
     }
-    .cajonE2{
+    .cajonF2{
       position: absolute;
-      right:260px;
+      right:25.5%;
       top: 268px;
       width:70px ;
       height: 175px;
-      border-right:10px solid #a6a6a6;
-        @include flex(column,nowrap,center,flex-start);
+      border-right:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -332,13 +442,14 @@ body{
       }
 
     }
-    .cajonF{
+    .cajonG1{
       position: absolute;
-      right: 10px;
-      top: 10px;
-      height: 100%;
-      width: 70px;
-        @include flex(column,nowrap,center,flex-start);
+      right:18%;
+      top: 53px;
+      height: 175px;
+      width:70px ;
+      border-left:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
@@ -346,7 +457,45 @@ body{
         height:40px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-rig: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonG2{
+      position: absolute;
+      right:18%;
+      top: 268px;
+      height: 175px;
+      border-left:5px solid #a6a6a6;
+      width:70px ;
+      @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+
+    .cajonH{
+      position: absolute;
+      right: 11px;
+      top: 10px;
+      height: 100%;
+      width: 70px;
+      @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:40px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
       }
 
     }
