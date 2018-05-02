@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" type="text/css" class="ui" href="https://semantic-ui.com/dist/semantic.min.css"> -->
-  <link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/icon.min.css">
-
+  <link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
 
   <link rel="stylesheet" href="estilos.min.css" type="text/css">
   <title>Parking</title>
 </head>
 
 <body>
+  <div class="cajaReloj">
+    <div id="reloj"></div>
+  </div>
+
   <div class="terreno">
     <!-- banquetas -->
     <div class="banquetaSuperior"></div>
@@ -20,118 +23,199 @@
     <div class="banquetaBC"></div>
     <div class="casetaUno"><p>SALIDA</p></div>
     <div class="casetaDos"><p>ENTRADA</p></div>
+
+
+    <div class="cajonA right">
+      <div class="caja" id="A10"><span>A10</span></div>
+      <div class="caja" id="A9"><span>A9</span></div>
+      <div class="caja" id="A8"><span>A8</span></div>
+      <div class="caja" id="A7"><span>A7</span></div>
+      <div class="caja" id="A6"><span>A6</span></div>
+      <div class="caja" id="A5"><span>A5</span></div>
+      <div class="caja" id="A4"><span>A4</span></div>
+      <div class="caja" id="A3"><span>A3</span></div>
+      <div class="caja" id="A2"><span>A2</span></div>
+      <div class="caja discapacidad" id="A1"><span class="left">A1</span><i class="wheelchair icon"></i></div>
+    </div>
+
+    <div class="cajonB1 left">
+      <div class="caja" id="B8"><span>B8</span></div>
+      <div class="caja" id="B7"><span>B7</span></div>
+      <div class="caja" id="B6"><span>B6</span></div>
+      <div class="caja" id="B5"><span>B5</span></div>
+    </div>
+    <div class="cajonB2 left">
+      <div class="caja" id="B4"><span>B4</span></div>
+      <div class="caja" id="B3"><span>B3</span></div>
+      <div class="caja" id="B2"><span>B2</span></div>
+      <div class="caja discapacidad" id="B1"><span>B1</span><i class="wheelchair icon"></i></div>
+    </div>
+    <div class="cajonC1 right">
+      <div class="caja" id="C8"><span>C8</span></div>
+      <div class="caja" id="C7"><span>C7</span></div>
+      <div class="caja" id="C6"><span>C6</span></div>
+      <div class="caja" id="C5"><span>C5</span></div>
+    </div>
+    <div class="cajonC2 right">
+      <div class="caja" id="C4"><span>C4</span></div>
+      <div class="caja" id="C3"><span>C3</span></div>
+      <div class="caja" id="C2"><span>C2</span></div>
+      <div class="caja discapacidad" id="C1"><span>C1</span><i class="wheelchair icon"></i></div>
+    </div>
+
+    <div class="cajonD1 left">
+      <div class="caja" id="D8"><span>D8</span></div>
+      <div class="caja" id="D7"><span>D7</span></div>
+      <div class="caja" id="D6"><span>D6</span></div>
+      <div class="caja" id="D5"><span>D5</span></div>
+    </div>
+    <div class="cajonD2 left">
+      <div class="caja" id="D4"><span>D4</span></div>
+      <div class="caja" id="D3"><span>D3</span></div>
+      <div class="caja" id="D2"><span>D2</span></div>
+      <div class="caja discapacidad" id="D1"><span>D1</span><i class="wheelchair icon"></i></div>
+    </div>
+    <div class="cajonE1 right">
+      <div class="caja" id="E8"><span>E8</span></div>
+      <div class="caja" id="E7"><span>E7</span></div>
+      <div class="caja" id="E6"><span>E6</span></div>
+      <div class="caja" id="E5"><span>E5</span></div>
+    </div>
+    <div class="cajonE2 right">
+      <div class="caja" id="E4"><span>E4</span></div>
+      <div class="caja" id="E3"><span>E3</span></div>
+      <div class="caja" id="E2"><span>E2</span></div>
+      <div class="caja discapacidad" id="E1"><span>E1</span><i class="wheelchair icon"></i></div>
+    </div>
+
+    <div class="cajonF1 left">
+      <div class="caja" id="F8"><span>F8</span></div>
+      <div class="caja" id="F7"><span>F7</span></div>
+      <div class="caja" id="F6"><span>F6</span></div>
+      <div class="caja" id="F5"><span>F5</span></div>
+    </div>
+    <div class="cajonF2 left">
+      <div class="caja" id="F4"><span>F4</span></div>
+      <div class="caja" id="F3"><span>F3</span></div>
+      <div class="caja" id="F2"><span>F2</span></div>
+      <div class="caja discapacidad" id="F1"><span>F1</span><i class="wheelchair icon"></i></div>
+    </div>
+    <div class="cajonG1 right">
+      <div class="caja" id="G8"><span>G8</span></div>
+      <div class="caja" id="G7"><span>G7</span></div>
+      <div class="caja" id="G6"><span>G6</span></div>
+      <div class="caja" id="G5"><span>G5</span></div>
+    </div>
+    <div class="cajonG2 right">
+      <div class="caja" id="G4"><span>G4</span></div>
+      <div class="caja" id="G3"><span>G3</span></div>
+      <div class="caja" id="G2"><span>G2</span></div>
+      <div class="caja discapacidad" id="G1"><span>G1</span><i class="wheelchair icon"></i></div>
+    </div>
+
+    <div class="cajonH left">
+      <div class="caja" id="H10"><span>H10</span></div>
+      <div class="caja" id="H9"><span>H9</span></div>
+      <div class="caja" id="H8"><span>H8</span></div>
+      <div class="caja" id="H7"><span>H7</span></div>
+      <div class="caja" id="H6"><span>H6</span></div>
+      <div class="caja" id="H5"><span>H5</span></div>
+      <div class="caja" id="H4"><span>H4</span></div>
+      <div class="caja" id="H3"><span>H3</span></div>
+      <div class="caja" id="H2"><span>H2</span></div>
+      <div class="caja discapacidad" id="H1"><span>H1</span><i class="wheelchair icon"></i></div>
+    </div>
     <div class="entrada"></div>
     <div class="salida"></div>
-
-
-    <div class="cajonA left">
-      <div class="caja"><span class="left">A1</span></div>
-      <div class="caja"><span class="left">A2</span></div>
-      <div class="caja"><span class="left">A3</span></div>
-      <div class="caja"><span class="left">A4</span></div>
-      <div class="caja"><span class="left">A5</span></div>
-      <div class="caja"><span class="left">A6</span></div>
-      <div class="caja"><span class="left">A7</span></div>
-      <div class="caja"><span class="left">A8</span></div>
-      <div class="caja"><span class="left">A9</span></div>
-      <div class="caja discapacidad"><span class="left">A10</span><i class="wheelchair icon"></i></div>
-    </div>
-
-    <div class="cajonB1 right">
-      <div class="caja"><span>B1</span></div>
-      <div class="caja"><span>B2</span></div>
-      <div class="caja"><span>B3</span></div>
-      <div class="caja"><span>B4</span></div>
-    </div>
-    <div class="cajonB2 right">
-      <div class="caja"><span>B5</span></div>
-      <div class="caja"><span>B6</span></div>
-      <div class="caja"><span>B7</span></div>
-      <div class="caja discapacidad"><span>B8</span><i class="wheelchair icon"></i></div>
-    </div>
-    <div class="cajonC1 left">
-      <div class="caja"><span>C1</span></div>
-      <div class="caja"><span>C2</span></div>
-      <div class="caja"><span>C3</span></div>
-      <div class="caja"><span>C4</span></div>
-    </div>
-    <div class="cajonC2 left">
-      <div class="caja"><span>C5</span></div>
-      <div class="caja"><span>C6</span></div>
-      <div class="caja"><span>C7</span></div>
-      <div class="caja discapacidad"><span>C8</span><i class="wheelchair icon"></i></div>
-    </div>
-
-    <div class="cajonD1 right">
-      <div class="caja"><span>D1</span></div>
-      <div class="caja"><span>D2</span></div>
-      <div class="caja"><span>D3</span></div>
-      <div class="caja"><span>D4</span></div>
-    </div>
-    <div class="cajonD2 right">
-      <div class="caja"><span>D5</span></div>
-      <div class="caja"><span>D6</span></div>
-      <div class="caja"><span>D7</span></div>
-      <div class="caja discapacidad"><span>D8</span><i class="wheelchair icon"></i></div>
-    </div>
-    <div class="cajonE1 left">
-      <div class="caja"><span>E1</span></div>
-      <div class="caja"><span>E2</span></div>
-      <div class="caja"><span>E3</span></div>
-      <div class="caja"><span>E4</span></div>
-    </div>
-    <div class="cajonE2 left">
-      <div class="caja"><span>E5</span></div>
-      <div class="caja"><span>E6</span></div>
-      <div class="caja"><span>E7</span></div>
-      <div class="caja discapacidad"><span>E8</span><i class="wheelchair icon"></i></div>
-    </div>
-
-    <div class="cajonF1 right">
-      <div class="caja"><span>F1</span></div>
-      <div class="caja"><span>F2</span></div>
-      <div class="caja"><span>F3</span></div>
-      <div class="caja"><span>F4</span></div>
-    </div>
-    <div class="cajonF2 right">
-      <div class="caja"><span>F5</span></div>
-      <div class="caja"><span>F6</span></div>
-      <div class="caja"><span>F7</span></div>
-      <div class="caja discapacidad"><span>F8</span><i class="wheelchair icon"></i></div>
-    </div>
-    <div class="cajonG1 left">
-      <div class="caja"><span>G1</span></div>
-      <div class="caja"><span>G2</span></div>
-      <div class="caja"><span>G3</span></div>
-      <div class="caja"><span>G4</span></div>
-    </div>
-    <div class="cajonG2 left">
-      <div class="caja"><span>G5</span></div>
-      <div class="caja"><span>G6</span></div>
-      <div class="caja"><span>G7</span></div>
-      <div class="caja discapacidad"><span>G8</span><i class="wheelchair icon"></i></div>
-    </div>
-
-    <div class="cajonH right">
-      <div class="caja"><span>H1</span></div>
-      <div class="caja"><span>H2</span></div>
-      <div class="caja"><span>H3</span></div>
-      <div class="caja"><span>H4</span></div>
-      <div class="caja"><span>H5</span></div>
-      <div class="caja"><span>H6</span></div>
-      <div class="caja"><span>H7</span></div>
-      <div class="caja"><span>H8</span></div>
-      <div class="caja"><span>H9</span></div>
-      <div class="caja discapacidad"><span>H10</span><i class="wheelchair icon"></i></div>
-    </div>
 
   </div>
   <p class="mensaje">El sistema no cuenta con versión móvil. </p>
 
 
-  <div class="banquetaCalle"></div>
-  <div class="carretera"></div>
-  <div class="banquetaCalle"></div>
-</body>
+
+  <div class="carretera">
+  </div>
+
+
+  <div class="ui basic modal"  id="modalAgregar">
+  <div class="ui icon header">
+    <i style="color:yellow;" class="question icon"></i>
+    <p style="text-align:center;color:yellow;">
+      ¿Estás totalmente deacuerdo de utlizar el lugar <span id="lugar"></span>?
+      </p>
+  </div>
+  <div class="content">
+    <p class="center">Una vez confirmada la acción, se empezará a cobrar la tarifa establecida.</p>
+  </div>
+  <div class="actions">
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Si
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+<script>
+
+
+$(".caja").click(function() {
+var id= $(this).attr('id');
+$('#lugar').html("'"+id+"'");
+
+$('#modalAgregar')
+  .modal({
+    closable  : false,
+    onDeny    : function(){
+      return true;
+    },
+    onApprove : function() {
+      window.alert('Approved!');
+    }
+  })
+  .modal('show')
+;
+
+});
+
+
+
+<!--
+/*By George Chiang (WA's JavaScript tutorial)
+
+Credit must stay intact for use*/
+function show(){
+var Digital=new Date()
+var hours=Digital.getHours()
+var minutes=Digital.getMinutes()
+var seconds=Digital.getSeconds()
+var dn="AM"
+if (hours>12){
+  dn="PM";
+  hours=hours-12;
+}
+if (hours==0){
+  hours=12;
+}
+if (minutes<=9){
+  minutes="0"+minutes;
+}
+if (seconds<=9){
+  seconds="0"+seconds;
+}
+var horaActual=hours+":"+minutes+":"+seconds+" "+dn;
+$('#reloj').html(horaActual);
+setTimeout("show()",1000)
+}
+show();
+//-->
+</script>
+  </body>
 
 </html>

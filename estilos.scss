@@ -100,7 +100,9 @@
     -webkit-align-content: center;
   }
 }
+
 body{
+
   margin: 0 auto;
   max-width: 1366px;
   background-color: #194894;
@@ -110,7 +112,7 @@ body{
   @include flex(column,nowrap,center,center);
 
 @media only screen and (max-width: 1050px) {
-  .terreno,.banquetaCalle,.carretera{
+  .terreno,.carretera{
     display: none;
   }
   .mensaje{
@@ -125,7 +127,8 @@ body{
     text-align: center;
   }
   .terreno{
-    position: relative;
+    position: absolute;
+    top: 50px;
     width: 1000px; //100 Metros
     height: 500px; //50 Metros
     background-color: #3d3d3d;
@@ -198,9 +201,8 @@ body{
     }
 
     .casetaUno{
-
-      width:72px;
-      height:47px;
+      width:77px;
+      height:40px;
       position: absolute;
       left: 0px;
       bottom: 0px;
@@ -214,8 +216,8 @@ body{
 
     }
     .casetaDos{
-      width:72px;
-      height:47px;
+      width:77px;
+      height:40px;
       position: absolute;
       right: 0px;
       bottom: 0px;
@@ -224,7 +226,6 @@ body{
       border-left: 10px solid #a6a6a6;
       text-align: center;
       font-size: 12px;
-
       font-weight: 300;
       color: #fff;
 
@@ -235,7 +236,9 @@ body{
       background: #3d3d3d;
       position: absolute;
       bottom:-10px;
-      right: 82px;
+      right: 77px;
+      z-index: 2;
+
 
     }
     .salida{
@@ -244,12 +247,13 @@ body{
       background: #3d3d3d;
       position: absolute;
       bottom:-10px;
-      left: 82px;
+      left: 77px;
+      z-index: 2;
 
     }
     .cajonA{
       position: absolute;
-      left: 11px;
+      right: 8px;
       top: 10px;
       height: 100%;
       width: 70px;
@@ -258,248 +262,234 @@ body{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
       }
 
     }
     .cajonB1{
       position: absolute;
-      left:18%;
+      right:18%;
       top: 53px;
-      height: 175px;
-      width:70px ;
-      border-right:5px solid #a6a6a6;
+      width:75px ;
+      border-left:5px solid #a6a6a6;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-right: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
       }
 
     }
     .cajonB2{
       position: absolute;
-      left:18%;
-      top: 268px;
-      height: 175px;
-      border-right:5px solid #a6a6a6;
-      width:70px ;
+      right:18%;
+      top: 275px;
+      border-left:5px solid #a6a6a6;
+      width:76px ;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonC1{
+      position: absolute;
+      right:25.5%;
+      top: 53px;
+      width:75px ;
+      border-right:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
         border-right: 3px solid #d9ad00;
       }
 
     }
-    .cajonC1{
-      position: absolute;
-      left:25.5%;
-      top: 53px;
-      width:70px ;
-      height: 175px;
-      border-left:5px solid #a6a6a6;
-      @include flex(column,nowrap,center,flex-start);
-      .caja{
-        &:first-child{
-          border-top: 3px solid #d9ad00;
-        }
-        height:40px;
-        width: 70px;
-        border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
-      }
-
-    }
     .cajonC2{
       position: absolute;
-      left:25.5%;
-      top: 268px;
-      width:70px ;
-      height: 175px;
-      border-left:5px solid #a6a6a6;
+      right:25.5%;
+      top: 276px;
+      width:75px ;
+      border-right:5px solid #a6a6a6;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
       }
 
     }
 
     .cajonD1{
       position: absolute;
-      right:50%;
+      left:50%;
       top: 53px;
-      width:70px ;
-      height: 175px;
-      border-right:5px solid #a6a6a6;
+      width:75px ;
+      border-left:5px solid #a6a6a6;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-right: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
       }
 
     }
     .cajonD2{
       position: absolute;
-      right:50%;
-      top: 268px;
-      width:70px ;
-      height: 175px;
-      border-right:5px solid #a6a6a6;
+      left:50%;
+      top: 276px;
+      border-left:5px solid #a6a6a6;
+      width:75px ;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-right: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
       }
 
     }
     .cajonE1{
       position: absolute;
-      left:50%;
+      right:50%;
       top: 53px;
-      height: 175px;
-      width:70px ;
-      border-left:5px solid #a6a6a6;
+      width:75px ;
+      border-right:5px solid #a6a6a6;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
       }
 
     }
     .cajonE2{
       position: absolute;
-      left:50%;
-      top: 268px;
-      height: 175px;
-      border-left:5px solid #a6a6a6;
-      width:70px ;
-      @include flex(column,nowrap,center,flex-start);
-      .caja{
-        &:first-child{
-          border-top: 3px solid #d9ad00;
-        }
-        height:40px;
-        width: 70px;
-        border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
-      }
-
-    }
-
-
-    .cajonF1{
-      position: absolute;
-      right:25.5%;
-      top: 53px;
-      width:70px ;
-      height: 175px;
+      right:50%;
+      top: 276px;
+      width:75px ;
       border-right:5px solid #a6a6a6;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
         border-right: 3px solid #d9ad00;
+      }
+
+    }
+
+    .cajonF1{
+      position: absolute;
+      left:25.5%;
+      top: 53px;
+      width:75px ;
+      border-left:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:45px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
       }
 
     }
     .cajonF2{
       position: absolute;
-      right:25.5%;
-      top: 268px;
-      width:70px ;
-      height: 175px;
+      left:25.5%;
+      top: 276px;
+      width:75px ;
+      border-left:5px solid #a6a6a6;
+      @include flex(column,nowrap,center,flex-start);
+      .caja{
+        &:first-child{
+          border-top: 3px solid #d9ad00;
+        }
+        height:45px;
+        width: 70px;
+        border-bottom: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
+      }
+
+    }
+    .cajonG1{
+      position: absolute;
+      left:18%;
+      top: 53px;
+      width:75px ;
       border-right:5px solid #a6a6a6;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
         border-right: 3px solid #d9ad00;
       }
 
     }
-    .cajonG1{
-      position: absolute;
-      right:18%;
-      top: 53px;
-      height: 175px;
-      width:70px ;
-      border-left:5px solid #a6a6a6;
-      @include flex(column,nowrap,center,flex-start);
-      .caja{
-        &:first-child{
-          border-top: 3px solid #d9ad00;
-        }
-        height:40px;
-        width: 70px;
-        border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
-      }
-
-    }
     .cajonG2{
       position: absolute;
-      right:18%;
-      top: 268px;
-      height: 175px;
-      border-left:5px solid #a6a6a6;
-      width:70px ;
+      left:18%;
+      top: 276px;
+      border-right:5px solid #a6a6a6;
+      width:75px ;
       @include flex(column,nowrap,center,flex-start);
       .caja{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-left: 3px solid #d9ad00;
+        border-right: 3px solid #d9ad00;
       }
 
     }
-
     .cajonH{
       position: absolute;
-      right: 11px;
+      left: 7px;
       top: 10px;
       height: 100%;
       width: 70px;
@@ -508,10 +498,10 @@ body{
         &:first-child{
           border-top: 3px solid #d9ad00;
         }
-        height:40px;
+        height:45px;
         width: 70px;
         border-bottom: 3px solid #d9ad00;
-        border-right: 3px solid #d9ad00;
+        border-left: 3px solid #d9ad00;
       }
 
     }
@@ -519,15 +509,30 @@ body{
 
   }
   .carretera{
+    position: absolute;
+    top: 550px;
     background:#3d3d3d;
     width: 100%;
     height: 80px;
+    border-top: 10px solid #a6a6a6;
+    border-bottom:  10px solid #a6a6a6;
   }
-  .banquetaCalle{
-    width:100%;
-    height: 10px;
-    background-color: #a6a6a6;
+  .center{
+    text-align: center;
   }
 
+}
 
+.cajaReloj{
+  background:black;
+  height: 30px;
+  width: 100px;
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  @include flex(row,nowrap,center,center);
+  #reloj{
+    color: #fff;
+    font-weight: 900;
+  }
 }
