@@ -112,7 +112,7 @@ body{
   @include flex(column,nowrap,center,center);
 
 @media only screen and (max-width: 1050px) {
-  .terreno,.carretera{
+  .terreno,.carretera,.cajaReloj{
     display: none;
   }
   .mensaje{
@@ -139,6 +139,12 @@ body{
           transform: rotate(90deg);
           right:7px;
         }
+        p{
+          margin-right:  3px;
+          padding: 4px 5px;
+          color: #d9ad00;
+          font-size: 11px;
+        }
       }
     }
     .left{
@@ -147,6 +153,12 @@ body{
         i{
           transform: rotate(-90deg);
             left:7px;
+        }
+        p{
+          margin-left: 3px;
+          padding: 4px 5px;
+          color: #d9ad00;
+            font-size: 11px;
         }
       }
     }
@@ -161,9 +173,10 @@ body{
         font-weight: 300;
 
       }
+
       cursor: pointer;
       &:hover{
-        background: green;
+        background:#921c13;
       }
       i{
         color: #fff;
@@ -172,6 +185,12 @@ body{
         height: 100%;
         position: absolute;
         top:0px;
+      }
+    }
+    .open{
+      background:#921c13!important;
+      i{
+        opacity: 0.2;
       }
     }
     .discapacidad{
