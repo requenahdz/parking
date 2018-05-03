@@ -183,6 +183,9 @@ starCountRef.on('value', function(snapshot) {
       if (value.estado==1) {
         $("#"+value.id).addClass('open');
         $("#"+value.id).find("p").html(value.inicio);
+      }else{
+        $("#"+value.id).removeClass('open');
+          $("#"+value.id).find("p").html("");
       }
   });
 });
