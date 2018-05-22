@@ -11,9 +11,18 @@
 </head>
 
 <body>
-  <div class="cajaReloj">
-    <div id="reloj"></div>
-  </div>
+
+  <header>
+    <div class="cajaPrecio">
+      <label>Precio por hora:</label><label id="precioPorHora"></label>
+    </div>
+    <div class="cajaReloj">
+      <label>Hora actual:</label><label id="reloj"></label>
+    </div>
+  </header>
+
+
+
 
   <div class="terreno">
     <!-- banquetas -->
@@ -138,77 +147,189 @@
 
 
   <div class="ui basic modal"  id="modalAgregar">
-  <div class="ui icon header">
-    <i style="color:#d9ad00;" class="question icon"></i>
-    <p style="text-align:center;color:#d9ad00;">
-      ¿Estás totalmente deacuerdo de utilizar el lugar <span id="lugar"></span>?
+    <div class="ui icon header">
+      <i style="color:#d9ad00;" class="question icon"></i>
+      <p style="text-align:center;color:#d9ad00;">
+        ¿Estás totalmente deacuerdo de utilizar el lugar <span id="lugar"></span>?
       </p>
-  </div>
-  <div class="content">
-    <p class="center">Una vez confirmada la acción, se empezará a cobrar la tarifa establecida.</p>
-  </div>
-  <div class="actions">
-    <div class="ui red basic cancel inverted button">
-      <i class="remove icon"></i>
-      No
     </div>
-    <div class="ui green ok inverted button">
-      <i class="checkmark icon"></i>
-      Si
+    <div class="content">
+      <p class="center">Una vez confirmada la acción, se empezará a cobrar la tarifa establecida.</p>
+    </div>
+    <div class="actions">
+
+      <div class="ui green ok inverted button">
+        <i class="checkmark icon"></i>
+        Si
+      </div>
+      <div class="ui red basic cancel inverted button">
+        <i class="remove icon"></i>
+        No
+      </div>
     </div>
   </div>
-</div>
+  <div class="ui small modal" id="modalPagar">
+    <div class="header">
+      Pagar estacionamiento.
+    </div>
+    <div class="content">
+      <form class="ui form">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCEzU9yQTlQFKxu1eLqJ8O3RsbQ0ZuB4O0",
-    authDomain: "parking-4b84c.firebaseapp.com",
-    databaseURL: "https://parking-4b84c.firebaseio.com",
-    projectId: "parking-4b84c",
-    storageBucket: "parking-4b84c.appspot.com",
-    messagingSenderId: "605572978415"
-  };
-  firebase.initializeApp(config);
-</script>
+        <div class="ui grid">
+          <div class="doubling column row">
+            <div class="column">
 
-<script>
+              <div class="ui raised segment" style=" width: 50%; margin: 0 auto;">
+                <div class="field inline">
+                  <label>Precio por hora:</label> <span id="tarifahora">aqui va alo</span>
+                </div>
+                <div class="field inline ">
+                  <label>Entrada:</label> <span id="entrada">aqui va alo</span>
+                </div>
+                <div class="field inline ">
+                  <label>Salida:</label> <span id="salida">aqui va alo</span>
+                </div>
+                <div class="field inline ">
+                  <label>Tiempo utilizado:</label> <span id="tiempoUtilizada">aqui va alo</span>
+                </div>
+                <div class="field inline ">
+                  <label>Total a pagar:</label> <span id="totalPagar">aqui va alo</span>
+                </div>
+              </div>
 
-var starCountRef = firebase.database().ref("cajas/");
-starCountRef.on('value', function(snapshot) {
-  $.each(snapshot.val(), function( index, value ) {
+            </div>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui positive right labeled icon button">
+        Pagar
+        <i class="dollar icon"></i>
+      </div>
+      <div class="ui negative right labled icon button">
+        Cancelar
+        <i class="remove icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui small modal" id="modalTarifa">
+    <div class="header">
+      Pagar estacionamiento.
+    </div>
+    <div class="content">
+      <form class="ui form">
+              <div class="field">
+                <label>Precio de la tarifa por hora:</label>
+                <input type="text" name="tarifa" id="tarifa" >
+              </div>
+
+
+
+
+
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui positive right labeled icon button">
+        Aceptar
+        <i class="dollar icon"></i>
+      </div>
+      <div class="ui negative right labled icon button">
+        Cancelar
+        <i class="remove icon"></i>
+      </div>
+    </div>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCEzU9yQTlQFKxu1eLqJ8O3RsbQ0ZuB4O0",
+      authDomain: "parking-4b84c.firebaseapp.com",
+      databaseURL: "https://parking-4b84c.firebaseio.com",
+      projectId: "parking-4b84c",
+      storageBucket: "parking-4b84c.appspot.com",
+      messagingSenderId: "605572978415"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+
+  <script>
+
+  var starCountRef = firebase.database().ref("cajas/");
+  var tarifa=0;
+  starCountRef.on('value', function(snapshot) {
+    $.each(snapshot.val(), function( index, value ) {
       if (value.estado==1) {
         $("#"+value.id).addClass('open');
-        $("#"+value.id).find("p").html(value.inicio);
+        var fecha =new Date(value.entrada);
+
+        $("#"+value.id).find("p").html(formatearFecha(fecha));
       }else{
         $("#"+value.id).removeClass('open');
-          $("#"+value.id).find("p").html("");
+        $("#"+value.id).find("p").html("");
       }
-  });
-});
-
-var horaActual;
-$(".caja").click(function() {
-
-  var id= $(this).attr('id');
-  $('#lugar').html("'"+id+"'");
-
-
-  if($(this).hasClass('open')){
-    firebase.database().ref("cajas/"+id+"/").set({
-      id: id,
-      inicio:horaActual,
-      fin:"unknow",
-      estado:0
     });
-      $("#"+id).removeClass('open');
-      $("#"+id).find("p").html("");
+  });
 
-  }else{
-    $('#modalAgregar').modal({
+  var starCountRef = firebase.database().ref("config/tarifa");
+  starCountRef.on('value', function(snapshot) {
+    tarifa=snapshot.val();
+   $('#tarifa').val(snapshot.val());
+   $('#precioPorHora').html("$"+snapshot.val());
+   $('#tarifahora').html("$"+snapshot.val());
+  });
+
+  var horaActual;
+
+  $(".caja").click(function() {
+
+    var id= $(this).attr('id');
+    $('#lugar').html("'"+id+"'");
+
+    if($(this).hasClass('open')){ //Se ejecuta SE ENCUENTRA OCUPADO
+      var salida=new Date().valueOf();
+      var starconfig = firebase.database().ref("cajas/"+id+"/");
+      starconfig.on('value', function(snapshot) {
+        var fechaEntrada = new Date(snapshot.val().entrada);
+        fechaSalida =  new Date(salida);
+        var tiempoUtilizada= fechaSalida - fechaEntrada;
+        tiempoUtilizada= tiempoUtilizada/1000;
+        var minutosUtilizados=tiempoUtilizada/60;
+        var total=minutosUtilizados/60
+        total=total*tarifa;
+
+        $('#entrada').html(formatearFecha(fechaEntrada));
+        $('#salida').html(formatearFecha(fechaSalida));
+        $('#tiempoUtilizada').html(formatearSegundos(tiempoUtilizada));
+        $('#totalPagar').html("$"+parseFloat(total).toFixed(2));
+      });
+
+
+      $('#modalPagar').modal({
+        closable  : false,
+        onDeny    : function(){
+          return true;
+        },onApprove : function() {
+          firebase.database().ref("cajas/"+id+"/").update({
+            salida:salida,
+            estado:0
+          });
+          $("#"+id).removeClass('open');
+          $("#"+id).find("p").html("");
+        }
+      }) .modal('show');
+
+
+
+    }else{ // Se ejecuta cuando NO ESTA OCUPADO
+      $('#modalAgregar').modal({
         closable  : false,
         onDeny    : function(){
           return true;
@@ -216,52 +337,76 @@ $(".caja").click(function() {
         onApprove : function() {
           firebase.database().ref("cajas/"+id+"/").set({
             id: id,
-            inicio:horaActual,
-            fin:"unknow",
+            entrada:new Date().valueOf(),
+            salida:0,
             estado:1
-      });
-          $("#"+id).find("p").html(horaActual)
+          });
         }
       }) .modal('show');
+    }
+
+  });
+
+
+  $("#precioPorHora").click(function() {
+    $('#modalTarifa').modal({
+      closable  : false,
+      onDeny    : function(){
+        return true;
+      },
+      onApprove : function() {
+        firebase.database().ref("config/").set({tarifa:parseFloat($('#tarifa').val())});
+      }
+    }) .modal('show');
+  });
+  <!--
+  /*By George Chiang (WA's JavaScript tutorial)
+
+  Credit must stay intact for use*/
+  function formatearFecha(fecha){
+    var hours=fecha.getHours();
+    var minutes=fecha.getMinutes();
+    var seconds=fecha.getSeconds();
+    var dn="AM"
+    if (hours>12){
+      dn="PM";
+      hours=hours-12;
+    }
+    if (hours==0){
+      hours=12;
+    }
+    if (minutes<=9){
+      minutes="0"+minutes;
+    }
+    if (seconds<=9){
+      seconds="0"+seconds;
+    }
+    horaActual=hours+":"+minutes+":"+seconds;
+    return horaActual;
   }
+  function formatearSegundos(time){
+    var hours = Math.floor( time / 3600 );
+    var minutes = Math.floor( (time % 3600) / 60 );
+    var seconds = time % 60;
 
+    //Anteponiendo un 0 a los minutos si son menos de 10
+    minutes = minutes < 10 ? '0' + minutes : minutes;
 
+    //Anteponiendo un 0 a los segundos si son menos de 10
+    seconds = seconds < 10 ? '0' + seconds : seconds;
 
-
-});
-
-
-
-<!--
-/*By George Chiang (WA's JavaScript tutorial)
-
-Credit must stay intact for use*/
-function show(){
-var Digital=new Date()
-var hours=Digital.getHours()
-var minutes=Digital.getMinutes()
-var seconds=Digital.getSeconds()
-var dn="AM"
-if (hours>12){
-  dn="PM";
-  hours=hours-12;
-}
-if (hours==0){
-  hours=12;
-}
-if (minutes<=9){
-  minutes="0"+minutes;
-}
-if (seconds<=9){
-  seconds="0"+seconds;
-}
- horaActual=hours+":"+minutes+":"+seconds;
-$('#reloj').html(horaActual);
-setTimeout("show()",1000)
-}
-show();
-//-->
+    var result = hours + ":" + minutes + ":" + parseFloat(seconds).toFixed(0);  // 2:41:30
+    return result;
+  }
+  function show(){
+    var fecha=new Date()
+    var horaActual= formatearFecha(fecha);
+    $('#reloj').html(horaActual);
+    setTimeout("show()",1000);
+  }
+  show();
+  -->
 </script>
-  </body>
+</body>
 
 </html>

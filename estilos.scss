@@ -309,7 +309,7 @@ body{
     .cajonB2{
       position: absolute;
       right:18%;
-      top: 275px;
+      top: 276px;
       border-left:5px solid #a6a6a6;
       width:76px ;
       @include flex(column,nowrap,center,flex-start);
@@ -542,16 +542,41 @@ body{
 
 }
 
-.cajaReloj{
-  background:black;
-  height: 30px;
-  width: 100px;
+header{
   position: absolute;
-  top: 10px;
-  text-align: center;
-  @include flex(row,nowrap,center,center);
-  #reloj{
-    color: #fff;
-    font-weight: 900;
-  }
+  top: 0;
+  width: 100%;
+  height: 50px;
+      @include flex(row,nowrap,center,space-around);
+    // .cajaReloj{
+    //   background: yellow;
+    // }
+    // .cajaPrecio{
+    //   background: red;
+    // }
+    div{
+      background:#000;
+      padding: 10px 30px;
+      color:#fff;
+      #precioPorHora,#reloj{
+        background: #fff;
+        color:#000;
+        padding: 5px 20px;
+        margin-left: 10px;
+      }
+
+    }
 }
+// // .cajaReloj{
+//   background:black;
+//   height: 30px;
+//   width: 100px;
+//   position: absolute;
+//   top: 10px;
+//   text-align: center;
+//   @include flex(row,nowrap,center,center);
+//   #reloj{
+//     color: #fff;
+//     font-weight: 900;
+//   }
+// }
